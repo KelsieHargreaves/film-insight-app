@@ -1,0 +1,105 @@
+.navigation{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.navigation::before{
+    content: "";
+    background-image: url(../../assets/movies.jpg);
+    position: absolute;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+
+.nav__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 200px;
+    position: relative;
+    padding: 0 48px;
+}
+
+.logo{
+    width: 50%;
+    background-color: transparent;
+}
+
+.nav__lists{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    color: black;
+    width: 100%;
+    max-width: 400px;
+}
+
+.nav__lists a {
+    color: black;
+    text-decoration: none;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 300ms ease;
+    font-size: 28px;
+    position: relative;
+    display: inline-flex;
+    background-color: transparent;
+}
+
+.nav__lists a.contact__btn{
+    color: white;
+    border: 1px solid #af4c0f;
+    background-color: #af4c0f;
+    border-radius: 50px;
+    padding: 8px;
+}
+
+.contact__btn:hover{
+    background-color: #913c07;
+    
+}
+
+.nav__lists a::after{
+   content: "";
+   position: absolute;
+   background: currentColor;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 2px;
+   transform: scaleX(0);
+   transform-origin: left;
+   transition: transform 300ms ease;
+}
+
+.nav__lists a:hover::after{
+    transform: scaleX(1)
+}
+
+.nav__lists a:not(:hover)::after{
+    transform-origin: right;
+}
+
+
+.nav__lists a.contact__btn::after{
+    display: none;
+}
+
+.nav__lists a.contact__btn:hover{
+    background-color: #913c07;
+}
+
+.movie__content{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}

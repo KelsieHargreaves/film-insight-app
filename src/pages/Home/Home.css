@@ -1,0 +1,40 @@
+.home__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 52px 0;
+}
+
+h1{
+    font-size: 48px;
+}
+
+h2{
+    font-size: 32px;
+    padding: 16px 0;
+}
+
+.book__search{
+    padding-top: 32px;
+}
+
+.book__search input{
+    font-size: 24px;
+    padding: 8px 16px;
+    border: 1px solid #471a14;
+    border-radius: 10px;
+    margin-right: 8px;
+}
+
+.book__search button{
+    background-color: #471a14;
+    color: white;
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 24px;
+    border: 1px solid #471a14;
+}
+
+figure img{
+    height: 500px;
+}
