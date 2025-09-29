@@ -7,8 +7,9 @@
     font-family: "Radley", serif;
 }
 
-body, html {
+body {
     background-color: #af4c0f1f;
+    min-height: 100%;
 }
 
 

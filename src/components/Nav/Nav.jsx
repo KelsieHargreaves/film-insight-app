@@ -1,6 +1,6 @@
 import React from "react";
 import "./Nav.css";
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/logo thumbnail (2).png";
 import { Link, useLocation } from "react-router-dom";
 
 const Nav = ({ extraContent }) => {
