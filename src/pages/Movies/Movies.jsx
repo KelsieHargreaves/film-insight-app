@@ -10,10 +10,11 @@ const Movies = () => {
 
     const { movies, searchMovies } = UseMovies("popular");
     const [search, setSearch] = useState("");
+    const [sortedMovies, setSortedMovies] = useState(movies);
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
-    const query = searchParams.get("query")
-
+    const query = searchParams.get("query");
+    
     useEffect(() => {
       if (query) {
         searchMovies(query);
@@ -21,9 +22,27 @@ const Movies = () => {
       }
     }, [query])
 
+    useEffect(() => {
+      setSortedMovies(movies);
+    }, [movies])
+
     const handleSubmit = (e) => {
       e.preventDefault();
       searchMovies(search);
+    }
+
+    const handleSort = (e) => {
+      const value = e.target.value;
+      let sorted = [...movies];
+
+      if (value === "NEWEST") {
+        sorted.sort((a,b) => new Date (b.release_date) - new Date (a.release_date) )
+      }
+      else if (value === "OLDEST") {
+        sorted.sort((a,b) => new Date (a.release_date) - new Date (b.release_date) )
+      }
+
+      setSortedMovies(sorted)
     }
 
   return (
@@ -47,15 +66,15 @@ const Movies = () => {
         }
       />
       <div className="movie__header">
-        <h1>Search Results:</h1>
-        <select id="movieSort" defaultValue="default">
+        <h1>Search Results:{search ? ` ${search}` : ""}</h1>
+        <select id="movieSort" defaultValue="default" onChange={handleSort}>
           <option value='default'>Sort by Year</option>
           <option value='NEWEST'>Newest</option>
           <option value='OLDEST'>Oldest</option>
         </select>
       </div>
       <div className="movies__body">
-        <TitleCards movies={movies}/>
+        <TitleCards movies={sortedMovies}/>
       </div>
     </div>
   );

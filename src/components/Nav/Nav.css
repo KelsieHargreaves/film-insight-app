@@ -37,11 +37,12 @@
     list-style-type: none;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: end;
     background-color: transparent;
     color: black;
     width: 100%;
     max-width: 400px;
+    gap: 52px;
 }
 
 .nav__lists a {
@@ -56,7 +57,7 @@
     background-color: transparent;
 }
 
-.nav__lists a.contact__btn{
+.nav__lists a.movies__btn{
     color: white;
     border: 1px solid #af4c0f;
     background-color: #af4c0f;
@@ -64,7 +65,7 @@
     padding: 8px;
 }
 
-.contact__btn:hover{
+.movies__btn:hover{
     background-color: #913c07;
     
 }
@@ -91,11 +92,11 @@
 }
 
 
-.nav__lists a.contact__btn::after{
+.nav__lists a.movies__btn::after{
     display: none;
 }
 
-.nav__lists a.contact__btn:hover{
+.nav__lists a.movies__btn:hover{
     background-color: #913c07;
 }
 

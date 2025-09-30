@@ -15,12 +15,7 @@ const Nav = ({ extraContent }) => {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/Movies">Movies</a>
-          </li>
-          <li>
-            <a href="" className="contact__btn">
-              Contact
-            </a>
+            <a  className="movies__btn" href="/Movies">Movies</a>
           </li>
         </ul>
       </div>

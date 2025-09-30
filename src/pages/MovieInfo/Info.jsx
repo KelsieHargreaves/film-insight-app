@@ -7,13 +7,14 @@ const Info = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-
   const [apiData, setApiData] = useState({
     name: "",
     key: "",
     published_at: "",
-    typeof: ""
+    typeof: "",
   });
+
+  const [error, setError] = useState("");
 
   const options = {
     method: "GET",
@@ -25,10 +26,25 @@ const Info = () => {
   };
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
-  .then(res => res.json())
-  .then(res => setApiData(res.results[0]))
-  .catch(err => console.error(err));
+    fetch(
+      `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`,
+      options
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.results && res.results.length > 0) {
+          setApiData(res.results[0]); 
+          setError("");
+        } else {
+          setApiData(null);
+          setError("No video available for this movie.");
+        }
+      })
+
+      .catch((err) => {
+        console.error(err); 
+        setError("No video available for this movie.");
+      });
   }, [id]);
 
   return (
@@ -41,8 +57,8 @@ const Info = () => {
         }}
       />
       <iframe
-        width='80%'
-        height='80%'
+        width="80%"
+        height="80%"
         src={`https://www.youtube.com/embed/${apiData.key}`}
         title="trailer"
         frameBorder="0"
