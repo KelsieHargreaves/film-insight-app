@@ -38,3 +38,48 @@ h2{
 figure img{
     max-height: 50vh;
 }
+
+@media (max-width: 850px) {
+    h1{
+        font-size: 30px;
+    }
+
+    h2{
+        font-size: 24px;
+    }
+
+    .book__search input{
+        font-size: 16px;
+    }
+
+    .book__search button{
+        font-size: 16px;
+    }
+}
+@media (max-width: 550px) {
+    h1{
+        font-size: 24px;
+    }
+
+    h2{
+        font-size: 20px;
+    }
+
+    .book__search{
+        padding-top: 20px;
+    }
+
+    figure img{
+        max-height: 30vh;
+    }
+}
+
+@media (max-width: 425px){
+    h1{
+        font-size: 20px;
+    }
+
+    h2{
+        font-size: 16px;
+    }
+}

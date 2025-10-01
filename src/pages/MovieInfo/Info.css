@@ -16,6 +16,8 @@
 
 .info iframe{
     border-radius: 10px;
+    width: 100%;
+    height: 80%;
 }
 
 .video__info{
@@ -24,4 +26,20 @@
     justify-content: space-between;
     width: 90%;
     font-size: 20px;
+}
+
+@media (max-width: 850px){
+    .video__info{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 500px){
+    .video__info{
+        display: none;
+    }
+
+    .info iframe{
+        height: 40%;
+    }
 }

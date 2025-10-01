@@ -45,3 +45,34 @@
     border: 1px solid #af4c0f;
     border-radius: 10px;
 }
+
+@media (max-width: 700px){
+    .movie__header h1{
+        font-size: 24px;
+    }
+
+    #movieSort{
+        font-size: 24px;
+    }
+
+    .nav-bar__content h1{
+        font-size: 24px;
+    }
+
+    .search-bar{
+        width: 300px;
+        font-size: 20px;
+    }
+
+
+}
+
+@media (max-width: 500px){
+    .movie__header h1{
+        font-size: 16px;
+    }
+
+    #movieSort{
+        font-size: 16px;
+    }
+}

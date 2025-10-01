@@ -42,4 +42,40 @@
     padding: 4px 8px;
     cursor: pointer;
     text-align: center;
+    text-decoration: none;
+}
+
+@media (max-width: 850px){
+    .movie h2:first-of-type{
+        font-size: 20px;
+    }
+    
+    .movie h2{
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .button{
+        font-size: 16px;
+    }
+
+    .movie{
+        width: 40%;
+    }
+}
+
+@media (max-width: 600px){
+    .movie__data{
+        gap: 24px;
+    }
+
+    .movie{
+        width: 80%;
+    }
+}
+@media (max-width: 425px){
+    .movie__data{
+        gap: 24px;
+    }
+
 }
