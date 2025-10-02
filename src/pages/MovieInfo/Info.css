@@ -32,6 +32,10 @@
     font-size: 48px;
 }
 
+.loading{
+    font-size: 48px;
+}
+
 @media (max-width: 850px){
     .video__info{
         font-size: 12px;
@@ -48,6 +52,10 @@
     }
     
     .no__video{
+        font-size: 32px;
+    }
+
+    .loading{
         font-size: 32px;
     }
 }

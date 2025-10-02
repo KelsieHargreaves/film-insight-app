@@ -16,6 +16,8 @@ const Info = () => {
 
   const [error, setError] = useState("");
 
+  const [loading, setLoading] = useState(true)
+
   const options = {
     method: "GET",
     headers: {
@@ -26,6 +28,7 @@ const Info = () => {
   };
 
   useEffect(() => {
+    setLoading(true);
     fetch(
       `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`,
       options
@@ -44,6 +47,9 @@ const Info = () => {
       .catch((err) => {
         console.error(err); 
         setError("No video available for this movie.");
+      })
+      .then(() => {
+        setTimeout(() => setLoading(false), 1000)
       });
   }, [id]);
 
@@ -56,26 +62,28 @@ const Info = () => {
           navigate(-1);
         }}
       />
-      {apiData?.key ? (
-      <>
-        <iframe
-          width="80%"
-          height="80%"
-          src={`https://www.youtube.com/embed/${apiData.key}`}
-          title="trailer"
-          frameBorder="0"
-          allowFullScreen
-        ></iframe>
-
-        <div className="video__info">
-          {apiData?.published_at && <p>{apiData.published_at.slice(0, 10)}</p>}
-          {apiData?.name && <p>{apiData.name}</p>}
-          {apiData?.type && <p>{apiData.type}</p>}
-        </div>
-      </>
-    ) : (
-      <p className="no__video">Sorry, no video to display.</p>
-    )}
+      {/* {apiData?.key ? ( */}
+      {loading ? (
+        <p className="loading">Loading Video</p>
+      ) : error ? (
+        <p className="no__video">{error}</p>
+      ) : (
+        <>
+          <iframe
+            width="80%"
+            height="80%"
+            src={`https://www.youtube.com/embed/${apiData.key}`}
+            title="trailer"
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
+          <div className="video__info">
+            {apiData?.published_at && <p>{apiData.published_at.slice(0, 10)}</p>}
+            {apiData?.name && <p>{apiData.name}</p>}
+            {apiData?.type && <p>{apiData.type}</p>}
+          </div>
+        </>
+      )}
     </div>
   );
 };

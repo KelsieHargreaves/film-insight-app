@@ -4,7 +4,7 @@ import Nav from "../../components/Nav/Nav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TitleCards from "../../components/TitleCards/TitleCards";
 import UseMovies from "../../hooks/UseMovies";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Movies = () => { 
 
@@ -14,11 +14,15 @@ const Movies = () => {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const query = searchParams.get("query");
+    const navigate = useNavigate()
     
     useEffect(() => {
       if (query) {
         searchMovies(query);
         setSearch (query);
+      }
+      else {
+        searchMovies('popular');
       }
     }, [query])
 
@@ -28,7 +32,10 @@ const Movies = () => {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      searchMovies(search);
+      if (search.trim()) {
+        navigate(`?query=${encodeURIComponent(search)}`)
+        searchMovies(search);
+      }
     }
 
     const handleSort = (e) => {

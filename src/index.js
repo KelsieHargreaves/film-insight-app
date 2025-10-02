@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { library } from '@fortawesome/fontawesome-svg-core';  
 import { faMagnifyingGlass, faSpinner, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faMagnifyingGlass, faSpinner, faArrowLeft)
+library.add(faMagnifyingGlass, faSpinner, faArrowLeft )
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
