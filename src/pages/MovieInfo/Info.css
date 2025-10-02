@@ -28,18 +28,26 @@
     font-size: 20px;
 }
 
+.no__video{
+    font-size: 48px;
+}
+
 @media (max-width: 850px){
     .video__info{
         font-size: 12px;
     }
 }
 
-@media (max-width: 500px){
+@media (max-width: 600px){
     .video__info{
         display: none;
     }
 
     .info iframe{
         height: 40%;
+    }
+    
+    .no__video{
+        font-size: 32px;
     }
 }

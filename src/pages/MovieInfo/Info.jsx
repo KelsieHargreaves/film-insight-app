@@ -56,19 +56,26 @@ const Info = () => {
           navigate(-1);
         }}
       />
-      <iframe
-        width="80%"
-        height="80%"
-        src={`https://www.youtube.com/embed/${apiData.key}`}
-        title="trailer"
-        frameBorder="0"
-        allowFullScreen
-      ></iframe>
-      <div className="video__info">
-        <p>{apiData.published_at.slice(0, 10)}</p>
-        <p>{apiData.name}</p>
-        <p>{apiData.type}</p>
-      </div>
+      {apiData?.key ? (
+      <>
+        <iframe
+          width="80%"
+          height="80%"
+          src={`https://www.youtube.com/embed/${apiData.key}`}
+          title="trailer"
+          frameBorder="0"
+          allowFullScreen
+        ></iframe>
+
+        <div className="video__info">
+          {apiData?.published_at && <p>{apiData.published_at.slice(0, 10)}</p>}
+          {apiData?.name && <p>{apiData.name}</p>}
+          {apiData?.type && <p>{apiData.type}</p>}
+        </div>
+      </>
+    ) : (
+      <p className="no__video">Sorry, no video to display.</p>
+    )}
     </div>
   );
 };
